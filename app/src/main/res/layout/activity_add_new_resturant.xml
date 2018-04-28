@@ -53,7 +53,7 @@
 
 
             <EditText
-                android:id="@+id/textView_resturantName"
+                android:id="@+id/editText_resturantName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -63,7 +63,7 @@
                 android:maxLines="1" />
 
             <EditText
-                android:id="@+id/textView_resturantAddress"
+                android:id="@+id/editText_resturantAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -78,6 +78,28 @@
                 android:hint="Resurant LatLng"
                 android:maxLines="1"
                 android:inputType="textCapSentences" />
+
+            <EditText
+                android:id="@+id/editText_resturantCuisineCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="Cusisine Categories"
+                android:maxLines="1"
+                android:inputType="textCapSentences"
+                android:focusable="false"
+                />
+
+            <EditText
+                android:id="@+id/editText_resturantQuickSearchCategories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="Quick Search Category"
+                android:maxLines="1"
+                android:inputType="textCapSentences"
+                android:focusable="false"
+                />
 
             <EditText
                 android:id="@+id/editText_resturantPhoneNumber"

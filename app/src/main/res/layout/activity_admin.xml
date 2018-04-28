@@ -24,4 +24,12 @@
         android:text="Add New Cuisine Category"
         android:theme="@style/button_style"
         />
+
+    <Button
+        android:id="@+id/button_addNewResturant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Resturant"
+        android:theme="@style/button_style"
+        />
 </LinearLayout>

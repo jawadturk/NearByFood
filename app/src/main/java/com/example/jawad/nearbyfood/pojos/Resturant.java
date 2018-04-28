@@ -26,7 +26,6 @@ public class Resturant {
     public Resturant(String resturantId, String resturantName, String resturantAddress, ArrayList<String> resturantPhotos, ArrayList<String> resturantMenuPhotos, String resturantLocationLat, String resturantLocationLong, int resturantNumberOfReviews, double resturantRating, ArrayList<String> resturantCuisineCategories, ArrayList<String> resturantQuickSearchCategories, String phoneNumber) {
         this.resturantId = resturantId;
         this.resturantName = resturantName;
-
         this.resturantAddress = resturantAddress;
         this.resturantPhotos = resturantPhotos;
         this.resturantMenuPhotos = resturantMenuPhotos;
@@ -50,16 +49,17 @@ public class Resturant {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("vendorId", vendorId);
-        result.put("vendorName", vendorName);
-        result.put("vendorDescription", vendorDescription);
-        result.put("vendorPhotos", vendorPhotos);
-        result.put("vendorPlace", vendorPlace);
-        result.put("vendorReviewsNumber", vendorReviewsNumber);
-        result.put("vendorRating", vendorRating);
-        result.put("vendorCategoryId", vendorCategoryId);
-        result.put("vendorZipCode",vendorZipCode);
-        result.put("vendorCategoryId_zipCode",vendorCategoryId+"_"+vendorZipCode);
+        result.put("phoneNumber",phoneNumber);
+        result.put("resturantId", resturantId);
+        result.put("resturantName", resturantName);
+        result.put("resturantAddress", resturantAddress);
+        result.put("resturantPhotos", resturantPhotos);
+        result.put("resturantMenuPhotos", resturantMenuPhotos);
+        result.put("resturantLocationLat", resturantLocationLat);
+        result.put("resturantLocationLong", resturantLocationLong);
+        result.put("resturantCuisineCategories", resturantCuisineCategories);
+        result.put("resturantQuickSearchCategories",resturantQuickSearchCategories);
+
 
 
         return result;

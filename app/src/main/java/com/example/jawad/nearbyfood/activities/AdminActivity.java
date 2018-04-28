@@ -20,6 +20,10 @@ public class AdminActivity extends AppCompatActivity {
     @BindView(R.id.button_addCuisineCategory)
     Button button_addCuisineCategory;
 
+    @BindView(R.id.button_addNewResturant)
+    Button button_addNewResturant;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,14 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 redirectToAddQuickSearch(IntentExtra.QuickSearchOrCuisine.typeCuisine);
+            }
+        });
+
+        button_addNewResturant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminActivity.this,AddNewResturantActivity.class);
+                startActivity(intent);
             }
         });
 
