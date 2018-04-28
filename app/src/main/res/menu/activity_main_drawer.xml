@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_quickSearch"
+            android:icon="@drawable/ic_search_black_36dp"
+            android:title="@string/title_section1" />
+
+        <item
+            android:id="@+id/nav_cuisines"
+            android:icon="@drawable/ic_food_fork_drink_black_36dp"
+            android:title="@string/title_section2" />
+
+    </group>
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_admin"
+                android:icon="@drawable/ic_person_black_36dp"
+                android:title="Admin" />
+            <item
+                android:id="@+id/nav_logOut"
+                android:icon="@drawable/ic_exit_to_app_black_36dp"
+                android:title="Logout" />
+
+        </menu>
+    </item>
+</menu>

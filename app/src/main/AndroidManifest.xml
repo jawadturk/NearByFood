@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jawad.nearbyfood">
+
+    <application
+        android:name=".application.ApplicationClass"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar2"
+            android:windowSoftInputMode="stateHidden|adjustNothing" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/DarkTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:theme="@style/DarkTheme" />
+
+        <service
+            android:name=".uploadimageservice.MyUploadService"
+            android:exported="false" />
+        <service android:name=".pushnotificationstuff.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".pushnotificationstuff.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activities.AddResturant" />
+        <activity android:name=".activities.AdminActivity" />
+        <activity android:name=".activities.AddQuickSearch_CuisineCategoryActivity" />
+        <activity android:name=".activities.AddNewResturantActivity"></activity>
+    </application>
+
+</manifest>

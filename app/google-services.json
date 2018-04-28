@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "216140969082",
+    "firebase_url": "https://nearbyfood-79701.firebaseio.com",
+    "project_id": "nearbyfood-79701",
+    "storage_bucket": "nearbyfood-79701.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216140969082:android:55dec6a4585f102e",
+        "android_client_info": {
+          "package_name": "com.example.jawad.nearbyfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216140969082-8lcp81tfj0i52s4he0tufm7c120dssof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_8mPthy91_6nONIFTm6VEkVluuyKJ4kQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
