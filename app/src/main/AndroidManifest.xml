@@ -41,7 +41,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.AddResturant" />
+        <activity android:name=".activities.FetchResturantsActivity" />
         <activity android:name=".activities.AdminActivity" />
         <activity android:name=".activities.AddQuickSearch_CuisineCategoryActivity" />
         <activity android:name=".activities.AddNewResturantActivity"></activity>

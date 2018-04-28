@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.util.Util;
 import com.example.jawad.nearbyfood.R;
+import com.example.jawad.nearbyfood.activities.FetchResturantsActivity;
 import com.example.jawad.nearbyfood.pojos.QuickSearchCategories;
 import com.example.jawad.nearbyfood.utils.GridSpacingItemDecoration;
 import com.example.jawad.nearbyfood.utils.Utils;
@@ -69,13 +70,14 @@ public class QuickSearchFragment extends Fragment {
 
                 // Set click listener for the whole post view
                 final String categoryKey = postRef.getKey();
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                viewHolder.imageView_categoryImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(getActivity(), VendorsActivity.class);
-//                        intent.putExtra(VendorsActivity.EXTRA_VENDOR_CATEGORY_KEY, categoryKey);
-//                        intent.putExtra(VendorsActivity.EXTRA_VENDOR_CATEGORY_NAME, model.vendorCategoryName);
-//                        startActivity(intent);
+                        Intent intent = new Intent(getActivity(), FetchResturantsActivity.class);
+                        intent.putExtra(FetchResturantsActivity.KEY_CATEGORY_ID, categoryKey);
+                        intent.putExtra(FetchResturantsActivity.KEY_CATEGORY_TYPE, FetchResturantsActivity.KEY_QUICK_SEARCH);
+
+                        startActivity(intent);
 
                     }
                 });

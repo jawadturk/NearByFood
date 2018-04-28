@@ -45,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -111,6 +112,8 @@ public class AddNewResturantActivity extends AppCompatActivity {
 
     private boolean ipickerChoosingPhotos=true;
 
+    private String cuisineTypes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,6 +149,7 @@ public class AddNewResturantActivity extends AppCompatActivity {
                         resturant.resturantPhotos=uploadedImagesUrls;
                         resturant.resturantCuisineCategories=selectedCuisinesCategories;
                         resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
+                        resturant.cuisineTypes=cuisineTypes;
 
                         writeResturantToDataBase(resturant);
                     }
@@ -180,14 +184,24 @@ public class AddNewResturantActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
 // TODO Auto-generated method stub
                                 String display_selected_cuisine_categories = "";
+                                List<String >  selectedItemsArray=new ArrayList<>();
                                 selectedCuisinesCategories.clear();
                                 for (int i = 0; i < cuisineCheckedState.length; i++) {
                                     if (cuisineCheckedState[i] == true) {
                                         selectedCuisinesCategories.add(cuisineCategoriesList.get(i).cuisineCategoryId);
-                                        display_selected_cuisine_categories = display_selected_cuisine_categories + " " + cuisineCategories[i];
+                                        selectedItemsArray.add(cuisineCategories[i]);
                                     }
                                 }
 
+                                for (int i=0;i<selectedItemsArray.size();i++)
+                                {
+                                    display_selected_cuisine_categories+=selectedItemsArray.get(i);
+                                    if (i<selectedItemsArray.size()-1)
+                                    {
+                                        display_selected_cuisine_categories+=",";
+                                    }
+                                }
+                                cuisineTypes=display_selected_cuisine_categories;
                                 editText_resturantCuisineChoose.setText(display_selected_cuisine_categories);
 
 //clears the String used to store the displayed text
@@ -420,7 +434,7 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
             resturant.resturantPhotos=uploadedImagesUrls;
             resturant.resturantCuisineCategories=selectedCuisinesCategories;
             resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
-
+            resturant.cuisineTypes=cuisineTypes;
             writeResturantToDataBase(resturant);
         }
 

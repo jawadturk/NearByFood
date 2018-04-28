@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jawad.nearbyfood.activities.AdminActivity;
+import com.example.jawad.nearbyfood.fragments.AllResturantsFragment;
 import com.example.jawad.nearbyfood.fragments.CuisineFragment;
 import com.example.jawad.nearbyfood.fragments.QuickSearchFragment;
 import com.example.jawad.nearbyfood.pojos.User;
@@ -206,8 +207,13 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 showVendorsCategoriesFeagment();
                 break;
             case R.id.nav_cuisines:
-                title = getString(R.string.title_section1);
+                title = getString(R.string.title_section2);
                 showCuisineCategoriesFeagment();
+                break;
+
+            case R.id.nav_all_resturants:
+                title = getString(R.string.title_section3);
+                showAllResturantsFragment();
                 break;
             case R.id.nav_logOut:
                 FirebaseAuth.getInstance().signOut();
@@ -316,6 +322,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
     }
 
+    public void showAllResturantsFragment() {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        AllResturantsFragment fragment = (AllResturantsFragment) supportFragmentManager.findFragmentByTag(AllResturantsFragment.class.getSimpleName());
+        if (fragment == null) {
+            fragment = new AllResturantsFragment();
+            switchContent(fragment, false, true);
+        } else {
+            supportFragmentManager.popBackStack(AllResturantsFragment.class.getSimpleName(), 0); //or return false/true based on where you are calling from to deny adding
+        }
+    }
 
 
     private void fetchUserProfile() {

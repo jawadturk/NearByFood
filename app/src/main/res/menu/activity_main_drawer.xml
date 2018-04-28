@@ -12,6 +12,11 @@
             android:icon="@drawable/ic_food_fork_drink_black_36dp"
             android:title="@string/title_section2" />
 
+        <item
+            android:id="@+id/nav_all_resturants"
+            android:icon="@drawable/ic_food_fork_drink_black_36dp"
+            android:title="@string/title_section2" />
+
     </group>
 
     <item android:title="">

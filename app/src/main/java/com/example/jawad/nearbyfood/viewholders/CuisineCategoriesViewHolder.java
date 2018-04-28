@@ -1,5 +1,6 @@
 package com.example.jawad.nearbyfood.viewholders;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,7 +18,7 @@ public class CuisineCategoriesViewHolder extends RecyclerView.ViewHolder {
 
     public TextView textView_categoryTitle;
     public SelectableRoundedImageView imageView_categoryImage;
-
+    public CardView cardView;
 
     public CuisineCategoriesViewHolder(View itemView) {
         super(itemView);
@@ -25,6 +26,7 @@ public class CuisineCategoriesViewHolder extends RecyclerView.ViewHolder {
 
         textView_categoryTitle = (TextView) itemView.findViewById(R.id.textView_title);
         imageView_categoryImage = (SelectableRoundedImageView) itemView.findViewById(R.id.thumbnail);
+        cardView = (CardView) itemView.findViewById(R.id.card_view);
 
     }
 

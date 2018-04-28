@@ -21,7 +21,8 @@ public class Resturant {
     public double resturantRating = 0.0;
     public ArrayList<String> resturantCuisineCategories = new ArrayList<>();
     public ArrayList<String> resturantQuickSearchCategories = new ArrayList<>();
-    public String phoneNumber;
+    public String phoneNumber="";
+    public String cuisineTypes="";
 
     public Resturant(String resturantId, String resturantName, String resturantAddress, ArrayList<String> resturantPhotos, ArrayList<String> resturantMenuPhotos, String resturantLocationLat, String resturantLocationLong, int resturantNumberOfReviews, double resturantRating, ArrayList<String> resturantCuisineCategories, ArrayList<String> resturantQuickSearchCategories, String phoneNumber) {
         this.resturantId = resturantId;
@@ -51,6 +52,7 @@ public class Resturant {
         HashMap<String, Object> result = new HashMap<>();
         result.put("phoneNumber",phoneNumber);
         result.put("resturantId", resturantId);
+        result.put("cuisineTypes",cuisineTypes);
         result.put("resturantName", resturantName);
         result.put("resturantAddress", resturantAddress);
         result.put("resturantPhotos", resturantPhotos);
