@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+
+        android:id="@+id/cardView_ehicleInfo_iconimageCapture"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="0dp"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardBackgroundColor="@color/location_background_color"
+        card_view:contentPadding="0dp">
+
+
+        <RelativeLayout
+            android:id="@+id/myContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="true">
+
+
+            <ImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imageView_carImage"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:scaleType="centerCrop" />
+
+            <ImageButton
+                android:id="@+id/deleteImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_clear_red_700_24dp"
+                android:padding="0dp"
+                android:background="?attr/selectableItemBackground"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
