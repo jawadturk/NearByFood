@@ -30,6 +30,7 @@ import com.example.jawad.nearbyfood.pojos.QuickSearchCategories;
 import com.example.jawad.nearbyfood.pojos.Resturant;
 import com.example.jawad.nearbyfood.uploadimageservice.MyUploadService;
 import com.example.jawad.nearbyfood.utils.RecyclerTouchListener;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -115,6 +116,9 @@ public class AddNewResturantActivity extends AppCompatActivity {
     private boolean ipickerChoosingPhotos=true;
 
     private String cuisineTypes;
+    private static final int REQUEST_CODE_CHOOSE_LOCATION= 123;
+
+    private LatLng selectedLocation=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +157,8 @@ public class AddNewResturantActivity extends AppCompatActivity {
                         resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
                         resturant.resturantCuisineCategoriesNamesList=selectedCuisinesCategoriesTextList;
                         resturant.resturantQuickSearchCategoriesNamesList=selectedQuickSearchCategoriesTextList;
+                        resturant.resturantLocationLat=Double.toString(selectedLocation.latitude);
+                        resturant.resturantLocationLong=Double.toString(selectedLocation.longitude);
                         resturant.cuisineTypes=cuisineTypes;
 
                         writeResturantToDataBase(resturant);
@@ -273,7 +279,7 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddNewResturantActivity.this,LocationSelectionActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_CODE_CHOOSE_LOCATION);
             }
         });
     }
@@ -454,6 +460,8 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
             resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
             resturant.resturantCuisineCategoriesNamesList=selectedCuisinesCategoriesTextList;
             resturant.resturantQuickSearchCategoriesNamesList=selectedQuickSearchCategoriesTextList;
+            resturant.resturantLocationLat=Double.toString(selectedLocation.latitude);
+            resturant.resturantLocationLong=Double.toString(selectedLocation.longitude);
             resturant.cuisineTypes=cuisineTypes;
             writeResturantToDataBase(resturant);
         }
@@ -556,6 +564,13 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
             editText_resturantCuisineChoose.setError(null);
         }
 
+        if (TextUtils.isEmpty(editText_resturantLocation.getText().toString())) {
+            editText_resturantLocation.setError("Required");
+            result = false;
+        } else {
+            editText_resturantLocation.setError(null);
+        }
+
         if (TextUtils.isEmpty(editText_resturantQuickSearchChoose.getText().toString())) {
             editText_resturantQuickSearchChoose.setError("Required");
             result = false;
@@ -641,4 +656,20 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
                         }));
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode==REQUEST_CODE_CHOOSE_LOCATION)
+        {
+            if (resultCode==RESULT_OK)
+            {
+
+                selectedLocation= data.getParcelableExtra("result");
+                editText_resturantLocation.setText(selectedLocation.toString());
+                Log.d(TAG, "onActivityResult: "+selectedLocation.toString());
+
+            }
+        }
+    }
 }

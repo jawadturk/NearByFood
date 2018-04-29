@@ -109,6 +109,8 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
 
     private String phoneNumber;
     private String resturantName;
+    private String latit;
+    private String longtit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +134,7 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
         textView_resturantAddress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showOnMap();
+                showOnMap(latit,longtit);
             }
         });
 
@@ -205,6 +207,8 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Resturant resturant = dataSnapshot.getValue(Resturant.class);
+                latit=resturant.resturantLocationLat;
+                longtit=resturant.resturantLocationLong;
                 textView_resturantName.setText(resturant.resturantName);
                 textView_numberOfReviews.setText(Integer.toString(resturant.resturantNumberOfReviews)+" Reviews");
                 textView_numberOfReviews.setPaintFlags(textView_numberOfPhotos.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -427,9 +431,9 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
         }
     }
 
-    private void showOnMap()
+    private void showOnMap(String lat,String longit)
     {
-        Uri gmmIntentUri = Uri.parse("geo:41.006810,-91.982747");
+        Uri gmmIntentUri = Uri.parse("geo:"+lat+","+longit);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
