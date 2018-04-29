@@ -51,7 +51,13 @@
             android:name=".activities.ResturantDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar2" />
         <activity android:name=".activities.DisplayImagesActivity" />
-        <activity android:name=".activities.ReviewsActivity"></activity>
+        <activity android:name=".activities.ReviewsActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_api_key" />
+
+        <activity android:name=".activities.LocationSelectionActivity"></activity>
     </application>
 
 </manifest>

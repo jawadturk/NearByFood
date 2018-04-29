@@ -18,4 +18,6 @@
 
     <string name="read_more">Read More</string>
     <string name="readLess">Read Less</string>
+
+    <string name="google_maps_api_key">AIzaSyDOcbgMfXeLtG6REVTXv_-mvtJhqgK_RD0</string>
 </resources>

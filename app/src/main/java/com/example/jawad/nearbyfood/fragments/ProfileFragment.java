@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -50,6 +51,9 @@ public class ProfileFragment extends Fragment {
     private Uri mFileUri = null;
     private BroadcastReceiver mBroadcastReceiver;
     private DatabaseReference mDatabase;
+
+    private TextView textView_email;
+    private TextView textView_name;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -85,6 +89,9 @@ public class ProfileFragment extends Fragment {
                                 Picasso.with(imageProfile.getContext()).load(user.profilePicture).into(imageProfile);
 
                             }
+
+                            textView_email.setText(user.email);
+                            textView_name.setText(user.name);
                         }
 
 
@@ -126,7 +133,7 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        rootview.findViewById(R.id.changePhoto_frameLayout).setOnClickListener(new View.OnClickListener() {
+        rootview.findViewById(R.id.fab_chooseImage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 IPicker.open(getContext());
@@ -136,6 +143,8 @@ public class ProfileFragment extends Fragment {
 
     private void setUpViews() {
         imageProfile = (ImageView) rootview.findViewById(R.id.profile_image);
+        textView_email = (TextView) rootview.findViewById(R.id.textView_mail);
+        textView_name = (TextView) rootview.findViewById(R.id.textView_name);
     }
 
 

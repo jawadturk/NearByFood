@@ -267,6 +267,15 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
                 alertdialog1.show();
             }
         });
+
+
+        editText_resturantLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddNewResturantActivity.this,LocationSelectionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupIPicker() {

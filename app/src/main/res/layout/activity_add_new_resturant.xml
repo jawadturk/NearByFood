@@ -75,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:hint="Resurant LatLng"
+                android:focusable="false"
                 android:maxLines="1"
                 android:inputType="textCapSentences" />
 
