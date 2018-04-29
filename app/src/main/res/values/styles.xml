@@ -50,5 +50,9 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
-
+    <style name="ratingBar" parent="android:style/Widget.Material.RatingBar.Small">>
+        <item name="android:progressDrawable">@drawable/ratingstars</item>
+        <item name="android:minHeight">25dip</item>
+        <item name="android:maxHeight">25dip</item>
+    </style>
 </resources>

@@ -21,15 +21,18 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.jawad.nearbyfood.R;
 import com.example.jawad.nearbyfood.adapters.ImageViewPagerAdapter;
 import com.example.jawad.nearbyfood.adapters.ImagesRecyclerViewAdapter;
 import com.example.jawad.nearbyfood.customviews.MyViewPager;
+import com.example.jawad.nearbyfood.database.DatabaseOps;
 import com.example.jawad.nearbyfood.pojos.Resturant;
 import com.example.jawad.nearbyfood.utils.GridSpacingItemDecoration;
 import com.example.jawad.nearbyfood.utils.Utils;
@@ -82,6 +85,10 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
     @BindView(R.id.viewPager_eventImages)
     MyViewPager intro_images;
 
+    @BindView(R.id.toggleButton_like)
+    ToggleButton toggleButton;
+
+
     private int dotsCount;
     private ImageView[] dots;
     private ImageViewPagerAdapter mAdapter;
@@ -101,6 +108,7 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
     private ImagesRecyclerViewAdapter mMenuImagesAdapter;
 
     private String phoneNumber;
+    private String resturantName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +133,35 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
             @Override
             public void onClick(View v) {
                 showOnMap();
+            }
+        });
+
+        textView_numberOfReviews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResturantDetailsActivity.this, ReviewsActivity.class);
+                intent.putExtra(ReviewsActivity.KEY_RESTURANT_ID, resturantId);
+                intent.putExtra(ReviewsActivity.KEY_RESTURANT_NAME, resturantName);
+
+                startActivity(intent);
+            }
+        });
+
+
+        if (DatabaseOps.getCurrentInstance().isFavorite(resturantId)
+                ) {
+
+            toggleButton.setChecked(true);
+        }
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    DatabaseOps.getCurrentInstance().insertResturantId(resturantId);
+                }else {
+                    DatabaseOps.getCurrentInstance().unFavorite(resturantId);
+                }
             }
         });
     }
@@ -171,13 +208,15 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
                 textView_resturantName.setText(resturant.resturantName);
                 textView_numberOfReviews.setText(Integer.toString(resturant.resturantNumberOfReviews)+" Reviews");
                 textView_numberOfReviews.setPaintFlags(textView_numberOfPhotos.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-                textView_rating.setText(Double.toString(resturant.resturantRating));
+                float rating = (float) resturant.resturantRating / resturant.resturantNumberOfReviews;
+                textView_rating.setText(Double.toString(rating));
                 textView_numberOfPhotos.setText(resturant.resturantPhotos.size()+" Photos");
                 textView_numberOfPhotos.setPaintFlags(textView_numberOfPhotos.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                 textView_resturantAddress.setText(resturant.resturantAddress);
                 textView_resturantPhoneNumber.setText(resturant.phoneNumber);
                 String display_selected_cuisine_categories = "";
                 phoneNumber=resturant.phoneNumber;
+                resturantName=resturant.resturantName;
                 for (int i=0;i<resturant.resturantCuisineCategoriesNamesList.size();i++)
                 {
                     display_selected_cuisine_categories+=resturant.resturantCuisineCategoriesNamesList.get(i);

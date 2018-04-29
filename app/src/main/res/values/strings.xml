@@ -6,6 +6,7 @@
     <string name="title_section1">Quick Search</string>
     <string name="title_section2">Cuisine Search</string>
     <string name="title_section3">All Resturants</string>
+    <string name="title_section4">Favorite Resturants</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -13,4 +14,7 @@
     <string name="progress_uploading">Uploading…</string>
     <string name="upload_success">Upload finished</string>
     <string name="upload_failure">Upload failed</string>
+
+    <string name="read_more">Read More</string>
+    <string name="readLess">Read Less</string>
 </resources>

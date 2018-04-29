@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.example.jawad.nearbyfood.R;
 import com.example.jawad.nearbyfood.activities.FetchResturantsActivity;
 import com.example.jawad.nearbyfood.activities.ResturantDetailsActivity;
+import com.example.jawad.nearbyfood.database.DatabaseOps;
 import com.example.jawad.nearbyfood.pojos.Resturant;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,23 +27,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-public class ResturantsAdapter extends RecyclerView.Adapter<ResturantsAdapter.ResturantViewHolder> {
-    private static final String TAG = ResturantsAdapter.class.getSimpleName();
+public class FavoriteResturantsAdapter extends RecyclerView.Adapter<FavoriteResturantsAdapter.ResturantViewHolder> {
+    private static final String TAG = FavoriteResturantsAdapter.class.getSimpleName();
     private Context mContext;
     private DatabaseReference mDatabaseReference;
     private ChildEventListener mChildEventListener;
     private List<String> mResturantsIds = new ArrayList<>();
-    private String categoryId;
-    private String categoryType;
+
     private List<Resturant> mResturants = new ArrayList<>();
 
-    public ResturantsAdapter(final Context context, DatabaseReference ref,String acategoryId,String acategoryType) {
+    public FavoriteResturantsAdapter(final Context context, DatabaseReference ref) {
         mContext = context;
         mDatabaseReference = ref;
-        this.categoryId=acategoryId;
-        this.categoryType=acategoryType;
+
 
         // Create child event listener
         // [START child_event_listener_recycler]
@@ -54,21 +50,13 @@ public class ResturantsAdapter extends RecyclerView.Adapter<ResturantsAdapter.Re
 
                 Resturant resturant = dataSnapshot.getValue(Resturant.class);
 
-                if (categoryType.equals(FetchResturantsActivity.KEY_CUISINE))
-                {
-                    if (resturant.resturantCuisineCategories.contains(categoryId))
+
+                    if (DatabaseOps.getCurrentInstance().isFavorite(resturant.resturantId))
                     {
                         mResturants.add(resturant);
                         mResturantsIds.add(dataSnapshot.getKey());
                     }
-                }else if (categoryType.equals(FetchResturantsActivity.KEY_QUICK_SEARCH))
-                {
-                    if (resturant.resturantQuickSearchCategories.contains(categoryId))
-                    {
-                        mResturants.add(resturant);
-                        mResturantsIds.add(dataSnapshot.getKey());
-                    }
-                }
+
 
 
                 notifyItemInserted(mResturants.size() - 1);
@@ -87,25 +75,15 @@ public class ResturantsAdapter extends RecyclerView.Adapter<ResturantsAdapter.Re
                 int commentIndex = mResturantsIds.indexOf(resturantId);
                 if (commentIndex > -1) {
 
-                    if (categoryType.equals(FetchResturantsActivity.KEY_CUISINE))
-                    {
-                        if (newResturant.resturantCuisineCategories.contains(categoryId))
+
+                        if (DatabaseOps.getCurrentInstance().isFavorite(newResturant.resturantId))
                         {
                             // Replace with the new data
                             mResturants.set(commentIndex, newResturant);
                             // Update the RecyclerView
                             notifyItemChanged(commentIndex);
                         }
-                    }else if (categoryType.equals(FetchResturantsActivity.KEY_QUICK_SEARCH))
-                    {
-                        if (newResturant.resturantQuickSearchCategories.contains(categoryId))
-                        {
-                            // Replace with the new data
-                            mResturants.set(commentIndex, newResturant);
-                            // Update the RecyclerView
-                            notifyItemChanged(commentIndex);
-                        }
-                    }
+
 
 
 

@@ -49,6 +49,8 @@ dependencies {
 
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
 
+    implementation 'at.blogc:expandabletextview:1.0.3'
+
 
 }
 apply plugin: 'com.google.gms.google-services'

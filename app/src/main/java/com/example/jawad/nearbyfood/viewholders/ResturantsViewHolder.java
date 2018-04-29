@@ -43,7 +43,8 @@ public class ResturantsViewHolder extends RecyclerView.ViewHolder {
         {
             resturantCuisineType.setText(resturant.cuisineTypes);
         }
-        resturantRating.setText(Double.toString(resturant.resturantRating));
+        float rating = (float) resturant.resturantRating / resturant.resturantNumberOfReviews;
+        resturantRating.setText(Double.toString(rating));
 
 
         if (resturant.resturantPhotos.size() > 0) {

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/comment_photo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+
+        android:src="@drawable/ic_account_circle_grey_500_48dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:padding="5dp"
+        android:layout_toRightOf="@+id/comment_photo">
+
+        <TextView
+            android:id="@+id/textView_reviewAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="John Doe" />
+
+        <RatingBar
+            android:id="@+id/ratingBar_vendorRating"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:numStars="5"
+            android:rating="3.5"
+            android:isIndicator="false"
+            style="@style/ratingBar"
+            android:scaleY=".5"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            android:scaleX=".5"
+            android:clickable="false"
+            android:focusableInTouchMode="false" />
+
+        <at.blogc.android.views.ExpandableTextView
+            android:id="@+id/textView_reviewBody"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/button_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@string/read_more"
+            android:background="?selectableItemBackground"
+            android:textColor="@color/primary"
+            android:textAllCaps="false"
+            android:gravity="left|center_vertical" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_color"
+        android:layout_below="@+id/layoutContainer"
+        android:layout_marginTop="5dp"></View>
+
+</RelativeLayout>
