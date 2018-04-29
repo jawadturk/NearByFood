@@ -21,6 +21,9 @@ public class Resturant {
     public double resturantRating = 0.0;
     public ArrayList<String> resturantCuisineCategories = new ArrayList<>();
     public ArrayList<String> resturantQuickSearchCategories = new ArrayList<>();
+
+    public ArrayList<String> resturantCuisineCategoriesNamesList = new ArrayList<>();
+    public ArrayList<String> resturantQuickSearchCategoriesNamesList = new ArrayList<>();
     public String phoneNumber="";
     public String cuisineTypes="";
 
@@ -61,6 +64,8 @@ public class Resturant {
         result.put("resturantLocationLong", resturantLocationLong);
         result.put("resturantCuisineCategories", resturantCuisineCategories);
         result.put("resturantQuickSearchCategories",resturantQuickSearchCategories);
+        result.put("resturantCuisineCategoriesNamesList",resturantCuisineCategoriesNamesList);
+        result.put("resturantQuickSearchCategoriesNamesList",resturantQuickSearchCategoriesNamesList);
 
 
 

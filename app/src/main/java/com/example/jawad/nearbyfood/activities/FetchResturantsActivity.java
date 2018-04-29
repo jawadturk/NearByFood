@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.jawad.nearbyfood.R;
@@ -51,6 +52,7 @@ public class FetchResturantsActivity extends AppCompatActivity {
             categoryType=getIntent().getStringExtra(KEY_CATEGORY_TYPE);
         }
         setupRecyclerView();
+        setUpToolBar("Resturants");
     }
 
     private void setupRecyclerView() {
@@ -62,5 +64,28 @@ public class FetchResturantsActivity extends AppCompatActivity {
         mAdapter= new ResturantsAdapter(this, mResturantReference,categoryId,categoryType);
         mRecycler.setAdapter(mAdapter);
     }
+    @Override
+    public void onStop() {
+        super.onStop();
 
+
+        mAdapter.cleanupListener();
+    }
+    private void setUpToolBar(String message) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(message);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                onBackPressed();
+                return true;
+            }
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

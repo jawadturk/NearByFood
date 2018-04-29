@@ -1,6 +1,7 @@
 package com.example.jawad.nearbyfood.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.jawad.nearbyfood.R;
 import com.example.jawad.nearbyfood.activities.FetchResturantsActivity;
+import com.example.jawad.nearbyfood.activities.ResturantDetailsActivity;
 import com.example.jawad.nearbyfood.pojos.Resturant;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -166,7 +168,7 @@ public class ResturantsAdapter extends RecyclerView.Adapter<ResturantsAdapter.Re
     @Override
     public void onBindViewHolder(final ResturantViewHolder holder, int position) {
 
-        Resturant resturant = mResturants.get(position);
+        final Resturant resturant = mResturants.get(position);
         holder.resturantName.setText(resturant.resturantName);
         holder. resturantAddress.setText(resturant.resturantAddress);
 
@@ -182,6 +184,14 @@ public class ResturantsAdapter extends RecyclerView.Adapter<ResturantsAdapter.Re
 
         }
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(mContext, ResturantDetailsActivity.class);
+                intent.putExtra(ResturantDetailsActivity.KEY_RESTURANT_KEY,resturant.resturantId);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

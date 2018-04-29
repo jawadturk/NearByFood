@@ -100,6 +100,8 @@ public class AddNewResturantActivity extends AppCompatActivity {
     ArrayList<String> selectedCuisinesCategories = new ArrayList<>();
     ArrayList<String> selectedQuickSearchCategories = new ArrayList<>();
 
+    ArrayList<String> selectedCuisinesCategoriesTextList = new ArrayList<>();
+    ArrayList<String> selectedQuickSearchCategoriesTextList = new ArrayList<>();
     private int currentIndex = 0;
     private int numberOfRetriedLeft = 3;
 
@@ -149,6 +151,8 @@ public class AddNewResturantActivity extends AppCompatActivity {
                         resturant.resturantPhotos=uploadedImagesUrls;
                         resturant.resturantCuisineCategories=selectedCuisinesCategories;
                         resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
+                        resturant.resturantCuisineCategoriesNamesList=selectedCuisinesCategoriesTextList;
+                        resturant.resturantQuickSearchCategoriesNamesList=selectedQuickSearchCategoriesTextList;
                         resturant.cuisineTypes=cuisineTypes;
 
                         writeResturantToDataBase(resturant);
@@ -186,9 +190,11 @@ public class AddNewResturantActivity extends AppCompatActivity {
                                 String display_selected_cuisine_categories = "";
                                 List<String >  selectedItemsArray=new ArrayList<>();
                                 selectedCuisinesCategories.clear();
+                                selectedCuisinesCategoriesTextList.clear();
                                 for (int i = 0; i < cuisineCheckedState.length; i++) {
                                     if (cuisineCheckedState[i] == true) {
                                         selectedCuisinesCategories.add(cuisineCategoriesList.get(i).cuisineCategoryId);
+                                        selectedCuisinesCategoriesTextList.add(cuisineCategoriesList.get(i).cuisineCategoryName);
                                         selectedItemsArray.add(cuisineCategories[i]);
                                     }
                                 }
@@ -241,9 +247,12 @@ public class AddNewResturantActivity extends AppCompatActivity {
 // TODO Auto-generated method stub
                                 String categoriesSelected = "";
                                 selectedQuickSearchCategories.clear();
+                                selectedQuickSearchCategoriesTextList.clear();
                                 for (int i = 0; i < quickSearchCheckedState.length; i++) {
                                     if (quickSearchCheckedState[i] == true) {
                                         selectedQuickSearchCategories.add(quickSearchCategoriesList.get(i).quickSearchCategoryId);
+                                        selectedQuickSearchCategoriesTextList.add(quickSearchCategoriesList.get(i).quickSearchCategoryName);
+
                                         categoriesSelected = categoriesSelected + " " + quickSearchCategories[i];
                                     }
                                 }
@@ -434,6 +443,8 @@ editText_resturantQuickSearchChoose.setText(categoriesSelected);
             resturant.resturantPhotos=uploadedImagesUrls;
             resturant.resturantCuisineCategories=selectedCuisinesCategories;
             resturant.resturantQuickSearchCategories=selectedQuickSearchCategories;
+            resturant.resturantCuisineCategoriesNamesList=selectedCuisinesCategoriesTextList;
+            resturant.resturantQuickSearchCategoriesNamesList=selectedQuickSearchCategoriesTextList;
             resturant.cuisineTypes=cuisineTypes;
             writeResturantToDataBase(resturant);
         }

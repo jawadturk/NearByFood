@@ -1,5 +1,6 @@
 package com.example.jawad.nearbyfood.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jawad.nearbyfood.R;
+import com.example.jawad.nearbyfood.activities.ResturantDetailsActivity;
 import com.example.jawad.nearbyfood.pojos.CuisineCategories;
 import com.example.jawad.nearbyfood.pojos.Resturant;
 import com.example.jawad.nearbyfood.utils.GridSpacingItemDecoration;
@@ -67,13 +69,13 @@ public class AllResturantsFragment extends Fragment {
 
                 // Set click listener for the whole post view
                 final String categoryKey = postRef.getKey();
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        Intent intent = new Intent(getActivity(), VendorsActivity.class);
-//                        intent.putExtra(VendorsActivity.EXTRA_VENDOR_CATEGORY_KEY, categoryKey);
-//                        intent.putExtra(VendorsActivity.EXTRA_VENDOR_CATEGORY_NAME, model.vendorCategoryName);
-//                        startActivity(intent);
+                        Intent intent = new Intent(getActivity(), ResturantDetailsActivity.class);
+                        intent.putExtra(ResturantDetailsActivity.KEY_RESTURANT_KEY, categoryKey);
+
+                        startActivity(intent);
 
                     }
                 });

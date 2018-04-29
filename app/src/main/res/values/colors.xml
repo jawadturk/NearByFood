@@ -19,4 +19,8 @@
 
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
+
+    <color name="transparentBlue">#8C039BE5</color>
+
+    <color name="green">#03ae00</color>
 </resources>

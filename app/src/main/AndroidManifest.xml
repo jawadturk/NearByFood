@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jawad.nearbyfood">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:name=".application.ApplicationClass"
         android:allowBackup="true"
@@ -44,7 +46,12 @@
         <activity android:name=".activities.FetchResturantsActivity" />
         <activity android:name=".activities.AdminActivity" />
         <activity android:name=".activities.AddQuickSearch_CuisineCategoryActivity" />
-        <activity android:name=".activities.AddNewResturantActivity"></activity>
+        <activity android:name=".activities.AddNewResturantActivity" />
+        <activity
+            android:name=".activities.ResturantDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity android:name=".activities.DisplayImagesActivity" />
+        <activity android:name=".activities.ReviewsActivity"></activity>
     </application>
 
 </manifest>
