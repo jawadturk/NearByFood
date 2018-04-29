@@ -276,7 +276,7 @@ public class ResturantDetailsActivity extends AppCompatActivity implements ViewP
         handler = new Handler();
         update = new Runnable() {
             public void run() {
-                if (intro_images.getCurrentItem() == 3) {
+                if (intro_images.getCurrentItem() == mAdapter.getCount()-1) {
                     intro_images.setCurrentItem(0, true);
                 } else {
                     intro_images.setCurrentItem(intro_images.getCurrentItem() + 1, true);

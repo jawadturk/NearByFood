@@ -7,6 +7,7 @@
     <string name="title_section2">Cuisine Search</string>
     <string name="title_section3">All Resturants</string>
     <string name="title_section4">Favorite Resturants</string>
+    <string name="title_section5">Profile</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

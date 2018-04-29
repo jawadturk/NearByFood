@@ -29,6 +29,7 @@ import com.example.jawad.nearbyfood.activities.AdminActivity;
 import com.example.jawad.nearbyfood.fragments.AllResturantsFragment;
 import com.example.jawad.nearbyfood.fragments.CuisineFragment;
 import com.example.jawad.nearbyfood.fragments.FavoritesFragment;
+import com.example.jawad.nearbyfood.fragments.ProfileFragment;
 import com.example.jawad.nearbyfood.fragments.QuickSearchFragment;
 import com.example.jawad.nearbyfood.pojos.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -221,6 +222,11 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
                 title = getString(R.string.title_section4);
                 showFavoriteResturants();
                 break;
+            case R.id.nav_profile:
+                title = getString(R.string.title_section5);
+                showProfileFragment();
+                break;
+
             case R.id.nav_logOut:
                 FirebaseAuth.getInstance().signOut();
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
@@ -350,6 +356,16 @@ public class MainActivity extends AppCompatActivity implements FragmentManager.O
         }
     }
 
+    public void showProfileFragment() {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        ProfileFragment profileFragment = (ProfileFragment) supportFragmentManager.findFragmentByTag(ProfileFragment.class.getSimpleName());
+        if (profileFragment == null) {
+            profileFragment = new ProfileFragment();
+            switchContent(profileFragment, false, true);
+        } else {
+            supportFragmentManager.popBackStack(ProfileFragment.class.getSimpleName(), 0); //or return false/true based on where you are calling from to deny adding
+        }
+    }
     private void fetchUserProfile() {
         DatabaseReference globalPostRef = mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         globalPostRef.addListenerForSingleValueEvent(

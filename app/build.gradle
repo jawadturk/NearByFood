@@ -51,6 +51,8 @@ dependencies {
 
     implementation 'at.blogc:expandabletextview:1.0.3'
 
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
