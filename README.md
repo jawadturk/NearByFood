@@ -4,26 +4,19 @@ Android app built with the help of firebase to help people finding local restaur
 <table style="width:100%">
   <tr>
     <th><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="400"></th>
-    <th><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="400"></th>
-     <th><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="400"></th>
+    <th><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211056.png" width="400"></th>
+     <th><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211203.png" width="400"></th>
 
  </tr>
   <tr>
-    <td>Bill Gates</td>
-    <td>55577854</td>
-    <td>55577855</td>
+    <td><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211215.png" width="400"></td>
+    <td><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211219.png" width="400"></td>
+    <td><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211224.png" width="400"></td>
+  </tr>
+    <tr>
+    <td><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211305.png" width="400"></td>
+    <td><img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211311.png" width="400"></td>
   </tr>
 </table>
 
 
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211056.png)
-
-
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211203.png)
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211215.png)
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211219.png)
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211224.png)
-
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211305.png)
-
-![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211311.png)
