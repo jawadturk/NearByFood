@@ -1,8 +1,8 @@
 # NearByFood
 Android app built with the help of firebase to help people finding local restaurants
 
-<img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="48">
-![img1]()
+<img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="400">
+<img src="https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211048.png" width="400">
 ![img1](https://github.com/jawadturk/NearByFood/blob/master/Project%20images/Screenshot_20180815-211056.png)
 
 
